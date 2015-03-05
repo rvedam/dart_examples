@@ -35,32 +35,14 @@ num mysum(int from, int to, [Function afun]) {
   return result;
 }
 
-void setTaskProcessState(String state) {
-  switch(state) {
-    case 'OPEN':
-      print('task is still open!');
-      break;
-    case 'PROCESSING':
-      print('processing task...');
-      break;
-    case 'CLOSED':
-      print('Closing task...');
-      continue nowClosed;
-    nowClosed:
-      case 'NOW_CLOSED':
-        print('task is now closed');
-        break;
-    default:
-      print('unrecognizable state');
-  }
-}
-
 class Point {
   num _x;
   num _y;
   num _z;
   
-  num get X => return _x;
+  num get X => _x;
+  num get Y => _y;
+  num get Z => _z;
 }
 
 // position parameters
