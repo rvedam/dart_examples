@@ -13,10 +13,5 @@ void defineTests() {
     test('calculate', () {
       expect(calculate(), 42);
     });
-    test('myequal', () {
-      expect(myequal(4,4), true);
-      expect(myequal(3,4), false);
-    });
-    
   });
 }
