@@ -3,16 +3,6 @@
 
 import 'package:dart_examples/dart_examples.dart' as dart_examples;
 
-class Point {
-  num _x;
-  num _y;
-  num _z;
-  
-  num get X => _x;
-  num get Y => _y;
-  num get Z => _z;
-}
-
 // position parameters
 main() {
   print('Hello world: ${dart_examples.calculate()}!');
