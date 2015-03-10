@@ -4,31 +4,14 @@
 
 part of dart_examples;
 
-// serializable interface
-//abstract class Serializable {
-//  String toJson();
-//}
-
-// serializable mixin
-abstract class Serializable {
-  Map<String, int> _obj;
-  String toJson() {
-    return _obj.toString();
-  }
-}
-
-class Point extends Object with Serializable {
+class Point {
   num _x;
   num _y;
   num _z;
 
   static final Map<String, Point> _cache = <String, Point>{};
 
-  Point._internal(this._x, this._y, this._z) {
-    this._obj['x'] = _x;
-    this._obj['y'] = _y;
-    this._obj['z'] = _z;
-  }
+  Point._internal(this._x, this._y, this._z);
 
   // redirecting constructors
   Point.alongXAxis(num x) : this._internal(x, 0, 0);
@@ -41,7 +24,6 @@ class Point extends Object with Serializable {
       : _x = data['x'],
         _y = data['y'],
         _z = data['z'] {
-    this._obj = data;
   }
 
   factory Point(num x, num y, num z) {
@@ -65,6 +47,16 @@ class Point extends Object with Serializable {
     var dy = Y - dest.Y;
     var dz = Z - dest.Z;
     return sqrt(dx * dx + dy * dy + dz * dz);
+  }
+  
+  Map<String, Object> toMap() {
+    Map<String, num> data = <String, num> {
+      "x": this.X,
+      "y": this.Y,
+      "z": this.Z
+    };
+    
+    return data;
   }
 }
 

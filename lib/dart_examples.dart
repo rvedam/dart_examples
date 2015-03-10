@@ -7,4 +7,4 @@ library dart_examples;
 import 'dart:math';
 
 part 'utils.dart';
-part 'mixin_example.dart';
+part 'class_example.dart';
