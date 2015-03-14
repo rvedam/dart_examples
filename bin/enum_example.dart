@@ -1,3 +1,7 @@
+/**
+ * Example program using enumerations. Enumeration Support is new in Dart 1.8
+ */
+
 enum Color {
   red,
   green,

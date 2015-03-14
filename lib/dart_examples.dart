@@ -8,3 +8,4 @@ import 'dart:math';
 
 part 'utils.dart';
 part 'class_example.dart';
+part 'mixin_example.dart';

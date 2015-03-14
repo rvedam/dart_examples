@@ -15,4 +15,15 @@ import 'package:dart_examples/dart_examples.dart' as dart_examples;
 
 main(List<String> args) {
   print('number of arguments passed ${args.length}');
+  var gym = new dart_examples.Gym();
+  var dojo = new dart_examples.Dojo();
+  
+  print('Exercising @ Gym');
+  gym.pushUps();
+  gym.preacherCurls();
+  print('\n');
+  
+  print('Exercising @ Dojo');
+  dojo.pushUps();
+  dojo.tai_kyo_ku();
 }

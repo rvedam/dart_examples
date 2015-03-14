@@ -27,7 +27,13 @@ class Point {
   }
 
   factory Point(num x, num y, num z) {
-    return new Point._internal(x, y, z);
+    var key = x.toString() + y.toString() + z.toString();
+    if(_cache[key] == null) {
+      var pt = new Point._internal(x, y, z);
+      _cache[key] = pt;
+      return pt;
+    }
+    return _cache[key];
   }
 
   // getters and setters
