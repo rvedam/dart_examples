@@ -1,40 +1,28 @@
 /**
- * Example of using classes, mix-ins, and interfaces in Dart
+ * Example of using classes
  */
 
 part of dart_examples;
 
-class Point {
+class Point2D {
   num _x;
   num _y;
-  num _z;
 
-  static final Map<String, Point> _cache = <String, Point>{};
+  static final Map<String, Point2D> _cache = <String, Point2D>{};
 
-  Point._internal(this._x, this._y, this._z);
+  Point2D._internal(this._x, this._y);
 
   // redirecting constructors
-  Point.alongXAxis(num x) : this._internal(x, 0, 0);
+  Point2D.alongXAxis(num x) : this._internal(x, 0);
 
-  Point.alongYAxis(num y) : this._internal(0, y, 0);
+  Point2D.alongYAxis(num y) : this._internal(0, y);
 
-  Point.alongZAxis(num z) : this._internal(0, 0, z);
-
-  Point.fromJson(Map data)
+  Point2D.fromJson(Map data)
       : _x = data['x'],
-        _y = data['y'],
-        _z = data['z'] {
+        _y = data['y'] {
   }
 
-  factory Point(num x, num y, num z) {
-    var key = x.toString() + y.toString() + z.toString();
-    if(_cache[key] == null) {
-      var pt = new Point._internal(x, y, z);
-      _cache[key] = pt;
-      return pt;
-    }
-    return _cache[key];
-  }
+  Point2D(num x, num y) : this._internal(x, y);
 
   // getters and setters
   num get X => _x;
@@ -43,27 +31,39 @@ class Point {
   num get Y => _y;
   set Y(num value) => _y = value;
 
-  num get Z => _z;
-  set Z(num value) => _z = value;
+  operator +(Point2D rhs) => new Point2D(X + rhs.X, Y + rhs.Y);
 
-  operator +(Point rhs) => new Point(X + rhs.X, Y + rhs.Y, Z + rhs.Z);
-
-  num distance(Point dest) {
+  num distance(Point2D dest) {
     var dx = X - dest.X;
     var dy = Y - dest.Y;
-    var dz = Z - dest.Z;
-    return sqrt(dx * dx + dy * dy + dz * dz);
+    return sqrt(dx * dx + dy * dy);
   }
   
   Map<String, Object> toMap() {
     Map<String, num> data = <String, num> {
       "x": this.X,
       "y": this.Y,
-      "z": this.Z
     };
     
     return data;
   }
+}
+
+// example of subclass
+class Point3D extends Point2D {
+  num _z;
+  
+  Point3D(num x, num y, this._z) : super(x, y);
+  
+  Point3D.alongXAxis(num x) : this(x, 0, 0);
+
+  Point3D.alongYAxis(num y) : this(0, y, 0);
+
+  Point3D.alongZAxis(num z) : this(0, 0, z);
+  
+  num get Z => _z;
+  set Z(num value) => _z = value;
+  
 }
 
 class ImmutablePoint {

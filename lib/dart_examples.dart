@@ -1,5 +1,11 @@
-// Copyright (c) 2015, Ram Vedam. All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be found in the LICENSE file.
+/**
+ * 
+ * Example of a library broken apart into multiple files
+ * NOTE: inside each of the files listed, there needs to be 
+ * 'part of dart_examples' declared at the top of the file other
+ * a compiler error will occur.
+ * 
+ */
 
 /// The dart_examples library.
 library dart_examples;

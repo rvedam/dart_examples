@@ -7,6 +7,6 @@ import 'dart_examples_test.dart' as dart_examples_test;
 import 'class_examples_test.dart' as class_examples_test;
 
 void main() {
-  //dart_examples_test.defineTests();
+  dart_examples_test.defineTests();
   class_examples_test.defineTests();
 }
