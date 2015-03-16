@@ -66,6 +66,9 @@ class Point3D extends Point2D {
   
 }
 
+/**
+ *  example of an immutable class in Dart
+ */
 class ImmutablePoint {
   final num x;
   final num y;
