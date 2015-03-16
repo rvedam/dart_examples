@@ -2,10 +2,10 @@
  * Test Suite for Mixin Examples
  */
 
-library class_examples_tests;
-
 import 'package:unittest/unittest.dart';
-import 'package:dart_examples/dart_examples.dart' as de;
+import 'package:dart_examples/dart_examples.dart' as dart_examples;
+
+void main() => defineTests();
 
 void main() => defineTests();
 
