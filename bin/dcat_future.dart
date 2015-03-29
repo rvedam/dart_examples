@@ -8,8 +8,11 @@ import 'dart:io';
 import 'dart:async' as async;
 
 void main(List<String> args) {
-  print("args: $args");
-  
+  if(args.length < 1) {
+    print('USAGE: dart dcat_future.dart <filename>');
+    return;
+  }
+
   // read in entire file as a list of Strings for procesing later.
   async.Future file = new File(args[0]).readAsLines();
   
