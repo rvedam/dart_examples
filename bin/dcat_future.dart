@@ -1,8 +1,7 @@
 /**
  * Example of doing asynchronous programming in Dart
  * 
- * Simple cat program, written in three different ways
- * 1) using Future API
+ * Simple cat program using the Future API.
  */
 
 import 'dart:io';
