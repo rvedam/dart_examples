@@ -5,7 +5,20 @@
  */
 
 import 'dart:io';
-import 'dart:async' as async;
+// you can use aliases
+//import 'dart:async' as async;
+
+// you can also make certain objects, functions, etc. visible/invisible using
+// show/hide feature.
+import 'dart:async' show Future;
+
+void processLines(List<String> lines) {
+  print('inside reading file as Future function:');
+  print('number of lines ${lines.length}');
+  for(var i = 0; i < lines.length; i++) {
+    print(lines[i]);
+  }
+}
 
 void main(List<String> args) {
   if(args.length < 1) {
@@ -14,15 +27,16 @@ void main(List<String> args) {
   }
 
   // read in entire file as a list of Strings for procesing later.
-  async.Future file = new File(args[0]).readAsLines();
+  Future file = new File(args[0]).readAsLines();
   
   // using the Future API we attach a callback to the then  
-  file.then((List<String> lines) {
-    print('inside reading file as Future function:');
-    print('number of lines ${lines.length}');
-    for(var i = 0; i < lines.length; i++) {
-      print(lines[i]);
-    }
-  });
-  
+//  file.then((List<String> lines) {
+//    print('inside reading file as Future function:');
+//    print('number of lines ${lines.length}');
+//    for(var i = 0; i < lines.length; i++) {
+//      print(lines[i]);
+//    }
+//  });
+
+  file.then(processLines);
 }
